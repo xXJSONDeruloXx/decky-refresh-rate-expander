@@ -1,5 +1,7 @@
 # 120 Hrtz Refresh Rate
 
+![screenshot of plugin](image.png)
+
 Decky Loader plugin that installs or removes expanded refresh rate support for Steam Deck OLED.
 
 It automates the process of enabling higher refresh rates on Steam Deck OLED by managing the required Lua script for gamescope.
