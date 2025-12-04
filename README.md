@@ -1,53 +1,43 @@
-# Decky Plugin Template [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://deckbrew.xyz/discord)
+# 120 Hrtz Refresh Rate
 
-Reference example for using [decky-frontend-lib](https://github.com/SteamDeckHomebrew/decky-frontend-lib) (@decky/ui) in a [decky-loader](https://github.com/SteamDeckHomebrew/decky-loader) plugin.
+Decky Loader plugin that installs or removes expanded refresh rate support for Steam Deck OLED.
 
-### **Please also refer to the [wiki](https://wiki.deckbrew.xyz/en/user-guide/home#plugin-development) for important information on plugin development and submissions/updates. currently documentation is split between this README and the wiki which is something we are hoping to rectify in the future.**  
+It automates the process of enabling higher refresh rates on Steam Deck OLED by managing the required Lua script for gamescope.
 
-## Developers
+## What it does
+
+from [deck-refresh-rate-expander](https://github.com/xXJSONDeruloXx/deck-refresh-rate-expander).
+
+- **Install**: Downloads `valve.steamdeck.oled.expanded.lua` to `~/.config/gamescope/scripts/displays/`
+- **Uninstall**: Removes the lua script from that directory
+
+A reboot is required after either action for changes to take effect.
+
+## Development
 
 ### Dependencies
 
-This template relies on the user having Node.js v16.14+ and `pnpm` (v9) installed on their system.  
-Please make sure to install pnpm v9 to prevent issues with CI during plugin submission.  
-`pnpm` can be downloaded from `npm` itself which is recommended.
-
-#### Linux
+- Node.js v16.14+
+- pnpm v9
 
 ```bash
 sudo npm i -g pnpm@9
 ```
 
-If you would like to build plugins that have their own custom backends, Docker is required as it is used by the Decky CLI tool.
-
-### Making your own plugin
-
-1. You can fork this repo or utilize the "Use this template" button on Github.
-2. In your local fork/own plugin-repository run these commands:
-   1. ``pnpm i``
-   2. ``pnpm run build``
-   - These setup pnpm and build the frontend code for testing.
-3. Consult the [decky-frontend-lib](https://github.com/SteamDeckHomebrew/decky-frontend-lib) repository for ways to accomplish your tasks.
-   - Documentation and examples are still rough, 
-   - Decky loader primarily targets Steam Deck hardware so keep this in mind when developing your plugin.
-4. If using VSCodium/VSCode, run the `setup` and `build` and `deploy` tasks. If not using VSCodium etc. you can derive your own makefile or just manually utilize the scripts for these commands as you see fit.
-
-If you use VSCode or it's derivatives (we suggest [VSCodium](https://vscodium.com/)!) just run the `setup` and `build` tasks. It's really that simple.
-
-#### Other important information
-
-Everytime you change the frontend code (`index.tsx` etc) you will need to rebuild using the commands from step 2 above or the build task if you're using vscode or a derivative.
-
-Note: If you are receiving build errors due to an out of date library, you should run this command inside of your repository:
+### Build
 
 ```bash
-pnpm update @decky/ui --latest
+pnpm i
+pnpm run build
 ```
 
-### Backend support
+### VSCode Tasks
 
-If you are developing with a backend for a plugin and would like to submit it to the [decky-plugin-database](https://github.com/SteamDeckHomebrew/decky-plugin-database) you will need to have all backend code located in ``backend/src``, with backend being located in the root of your git repository.
-When building your plugin, the source code will be built and any finished binary or binaries will be output to ``backend/out`` (which is created during CI.)
+Use the `setup`, `build`, and `deploy` tasks for streamlined development.
+
+### Backend
+
+Python backend handles file operations via `urllib` and `os` modules. No external dependencies required.
 If your buildscript, makefile or any other build method does not place the binary files in the ``backend/out`` directory they will not be properly picked up during CI and your plugin will not have the required binaries included for distribution.
 
 Example:  

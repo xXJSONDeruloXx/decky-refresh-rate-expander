@@ -1,11 +1,11 @@
 {
-  "name": "Example Plugin",
-  "author": "John Doe",
-  "flags": ["debug", "_root"],
+  "name": "120 Hrtz Refresh Rate",
+  "author": "xXJSONDeruloXx",
+  "flags": ["debug"],
   "api_version": 1,
   "publish": {
-    "tags": ["template", "root"],
-    "description": "Decky example plugin.",
-    "image": "https://opengraph.githubassets.com/1/SteamDeckHomebrew/PluginLoader"
+    "tags": ["display", "refresh-rate", "oled", "steam-deck"],
+    "description": "Install or uninstall expanded refresh rate support for Steam Deck OLED.",
+    "image": "https://opengraph.githubassets.com/1/xXJSONDeruloXx/deck-refresh-rate-expander"
   }
 }

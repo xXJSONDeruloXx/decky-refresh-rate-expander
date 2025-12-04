@@ -1,7 +1,7 @@
 {
-  "name": "decky-plugin-template",
-  "version": "0.0.1",
-  "description": "A template to quickly create decky plugins from scratch, based on TypeScript and webpack",
+  "name": "120-hrtz-refresh-rate",
+  "version": "1.0.0",
+  "description": "Install or uninstall expanded refresh rate support for Steam Deck OLED",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
